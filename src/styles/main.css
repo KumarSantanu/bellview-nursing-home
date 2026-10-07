@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BELLVIEW NURSING HOME, TAMLUK - DESIGN SYSTEM & STYLES
+   BELLVIEW NURSING HOME, TAMLUK - DESIGN SYSTEM & ACCESSIBILITY STYLES
    UX Priority: Low-digital literacy, elderly Bengali users, mobile-first.
    Palette: Deep Teal (#084C44), Soft Sage/Cream (#F7FAF8), High Contrast Text
    ========================================================================== */
@@ -12,6 +12,7 @@
   --color-primary-dark: #04322C;
   --color-primary-light: #0E5E54;
   --color-teal-accent: #0D9488;
+  --color-teal-text: #085E54; /* High contrast variant (> 5.5:1 against white for WCAG AAA) */
   --color-teal-glow: #14B8A6;
   --color-teal-soft: #E6F4F1;
   --color-teal-border: #BCDCD4;
@@ -22,21 +23,21 @@
   --color-bg-warm: #FFFBEB;
   
   --color-text-main: #132220;
-  --color-text-muted: #3B4D49;
-  --color-text-light: #617571;
+  --color-text-muted: #2E3E3B; /* High contrast body text (> 7:1) */
+  --color-text-light: #4A5D5A;
   --color-text-inverse: #FFFFFF;
 
   --color-amber-bg: #FEF3C7;
   --color-amber-border: #FCD34D;
-  --color-amber-text: #92400E;
+  --color-amber-text: #78350F;
 
   --color-blue-bg: #E0F2FE;
   --color-blue-border: #BAE6FD;
   --color-blue-text: #0369A1;
 
-  --color-green-call: #0F766E;
-  --color-wa-green: #15803D;
-  --color-map-blue: #0284C7;
+  --color-green-call: #0B6158;
+  --color-wa-green: #14532D;
+  --color-map-blue: #0369A1;
 
   /* Typography */
   --font-bengali: 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -45,7 +46,7 @@
   /* Dynamic font scale controlled by A- / A / A+ */
   --font-scale: 1;
   --base-font-size: calc(18px * var(--font-scale));
-  --line-height-normal: 1.7; /* Bengali scripts require tall line height */
+  --line-height-normal: 1.7; /* Bengali scripts require tall line height for matras */
 
   /* Spacing */
   --radius-sm: 8px;
@@ -53,10 +54,10 @@
   --radius-lg: 20px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 6px rgba(8, 76, 68, 0.05);
-  --shadow-md: 0 4px 14px rgba(8, 76, 68, 0.08);
+  --shadow-sm: 0 2px 6px rgba(8, 76, 68, 0.06);
+  --shadow-md: 0 4px 14px rgba(8, 76, 68, 0.09);
   --shadow-lg: 0 10px 25px rgba(8, 76, 68, 0.12);
-  --shadow-focus: 0 0 0 4px rgba(13, 148, 136, 0.35);
+  --shadow-focus: 0 0 0 4px rgba(13, 148, 136, 0.4);
 
   --transition-fast: 0.18s ease;
 }
@@ -82,20 +83,43 @@ html {
   background-color: var(--color-bg-base);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 84px; /* Space for mobile sticky action bar */
+  padding-bottom: 88px; /* Safe space for mobile sticky action bar */
   overflow-x: hidden;
 }
 
 @media (min-width: 769px) {
   body {
-    padding-bottom: 0; /* Sticky bottom only needed on mobile */
+    padding-bottom: 0;
   }
+}
+
+/* Accessible Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 1.1rem;
+  z-index: 9999;
+  border: 2px solid var(--color-teal-glow);
+  text-decoration: underline;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
 }
 
 /* Accessibility Focus Ring */
@@ -126,8 +150,8 @@ button, input, select {
   background-color: var(--color-primary-dark);
   color: #E2ECE9;
   padding: 8px 16px;
-  font-size: 0.9rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.92rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .top-utility-container {
@@ -137,56 +161,58 @@ button, input, select {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .utility-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .location-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 600;
+  font-weight: 700;
   color: #A7F3D0;
-  background: rgba(167, 243, 208, 0.12);
-  padding: 3px 10px;
+  background: rgba(167, 243, 208, 0.15);
+  padding: 4px 12px;
   border-radius: var(--radius-full);
 }
 
 .utility-controls {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* Font Size Switcher: A- A A+ */
+/* Font Size Switcher: A- A A+ (Finger-friendly min 40px) */
 .font-size-control {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-full);
   padding: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .font-size-btn {
   background: none;
   border: none;
   color: #FFFFFF;
-  padding: 4px 10px;
+  padding: 4px 12px;
   cursor: pointer;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  min-height: 36px;
-  min-width: 36px;
+  font-weight: 800;
+  min-height: 40px;
+  min-width: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition-fast);
+  font-size: 1rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .font-size-btn:hover,
@@ -200,15 +226,16 @@ button, input, select {
   background: #FFFFFF;
   color: var(--color-primary);
   border: none;
-  padding: 6px 14px;
+  padding: 6px 16px;
   border-radius: var(--radius-full);
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 38px;
+  min-height: 40px;
   box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
   transition: transform var(--transition-fast), background var(--transition-fast);
 }
 
@@ -234,7 +261,7 @@ button, input, select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .brand-wrapper {
@@ -242,6 +269,7 @@ button, input, select {
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  min-width: 0;
 }
 
 .brand-icon {
@@ -261,19 +289,24 @@ button, input, select {
 .brand-titles {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .brand-title {
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 4vw, 1.35rem);
   font-weight: 800;
   color: var(--color-primary-dark);
   line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-subtitle {
   font-size: 0.88rem;
-  color: var(--color-teal-accent);
-  font-weight: 600;
+  color: var(--color-teal-text);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Desktop Navigation */
@@ -291,7 +324,7 @@ button, input, select {
 
 .nav-link {
   font-size: 1.02rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-main);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
@@ -307,7 +340,7 @@ button, input, select {
 .btn-header-contact {
   background: var(--color-primary);
   color: #FFFFFF !important;
-  font-weight: 700;
+  font-weight: 800;
   padding: 10px 20px;
   border-radius: var(--radius-full);
   display: inline-flex;
@@ -331,12 +364,13 @@ button, input, select {
   background: var(--color-teal-soft);
   color: var(--color-primary-dark);
   border: 1px solid var(--color-teal-border);
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-md);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   min-height: 48px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 920px) {
@@ -400,12 +434,12 @@ button, input, select {
 }
 
 .section {
-  padding: 44px 0;
+  padding: 40px 0;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 56px 0;
   }
 }
 
@@ -417,7 +451,7 @@ button, input, select {
 
 .section-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .section-badge {
@@ -425,25 +459,19 @@ button, input, select {
   background: var(--color-teal-soft);
   color: var(--color-primary);
   font-size: 0.95rem;
-  font-weight: 700;
-  padding: 4px 14px;
+  font-weight: 800;
+  padding: 5px 16px;
   border-radius: var(--radius-full);
   margin-bottom: 10px;
   border: 1px solid var(--color-teal-border);
 }
 
 .section-title {
-  font-size: 1.95rem;
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
   font-weight: 800;
   color: var(--color-primary-dark);
   line-height: 1.3;
   margin-bottom: 10px;
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    font-size: 2.3rem;
-  }
 }
 
 .section-subtitle {
@@ -451,6 +479,7 @@ button, input, select {
   color: var(--color-text-muted);
   max-width: 720px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -458,7 +487,7 @@ button, input, select {
    ========================================================================== */
 .hero-section {
   background: linear-gradient(180deg, #F0F7F5 0%, #FFFFFF 100%);
-  padding: 36px 0 44px;
+  padding: 32px 0 40px;
   border-bottom: 1px solid var(--color-teal-border);
 }
 
@@ -483,32 +512,26 @@ button, input, select {
   background: #E8F5F2;
   color: var(--color-primary-dark);
   font-size: 1.05rem;
-  font-weight: 700;
-  padding: 6px 16px;
+  font-weight: 800;
+  padding: 6px 18px;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-teal-border);
   margin-bottom: 16px;
 }
 
 .hero-h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.9rem, 5.5vw, 2.85rem);
   font-weight: 800;
   color: var(--color-primary-dark);
   line-height: 1.3;
   margin-bottom: 16px;
 }
 
-@media (min-width: 768px) {
-  .hero-h1 {
-    font-size: 2.85rem;
-  }
-}
-
 .hero-lead {
   font-size: 1.22rem;
   color: var(--color-text-muted);
   line-height: 1.65;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .hero-primary-cta {
@@ -556,15 +579,15 @@ button, input, select {
   margin-top: 10px;
   text-align: center;
   font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-teal-accent);
+  font-weight: 700;
+  color: var(--color-teal-text);
 }
 
 /* ==========================================================================
    SIMPLE INSTANT SEARCH (কী খুঁজছেন?)
    ========================================================================== */
 .search-wrapper {
-  margin: -10px auto 30px;
+  margin: -6px auto 26px;
   max-width: 680px;
 }
 
@@ -574,7 +597,7 @@ button, input, select {
   background: #FFFFFF;
   border: 2px solid var(--color-teal-border);
   border-radius: var(--radius-full);
-  padding: 6px 16px;
+  padding: 6px 18px;
   box-shadow: var(--shadow-sm);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -587,7 +610,7 @@ button, input, select {
 .search-icon {
   font-size: 1.4rem;
   margin-right: 10px;
-  color: var(--color-teal-accent);
+  color: var(--color-teal-text);
 }
 
 .search-input {
@@ -610,7 +633,7 @@ button, input, select {
   font-size: 1.2rem;
   color: var(--color-text-light);
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
   display: none;
 }
 
@@ -653,43 +676,43 @@ button, input, select {
   transition: background var(--transition-fast);
 }
 
-.search-result-item:hover {
+.search-result-item:hover,
+.search-result-item:focus {
   background: var(--color-teal-soft);
   border-color: var(--color-teal-border);
 }
 
 /* ==========================================================================
    THE 6 BIG ACTIONS (আপনি কী জানতে চান?)
-   Heart of the website. Large finger-friendly cards.
    ========================================================================== */
 .six-actions-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 16px;
 }
 
 @media (min-width: 600px) {
   .six-actions-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
   }
 }
 
 @media (min-width: 960px) {
   .six-actions-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 22px;
   }
 }
 
 .action-card {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   background: #FFFFFF;
   border: 2px solid var(--color-teal-border);
   border-radius: var(--radius-lg);
-  padding: 22px 20px;
+  padding: 20px 18px;
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   text-decoration: none;
@@ -699,10 +722,11 @@ button, input, select {
   overflow: hidden;
 }
 
-.action-card:hover {
+.action-card:hover,
+.action-card:focus {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--color-teal-accent);
+  border-color: var(--color-primary);
   background: #FAFDFC;
 }
 
@@ -711,11 +735,11 @@ button, input, select {
 }
 
 .action-card-icon {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   line-height: 1;
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: var(--radius-md);
   background: var(--color-teal-soft);
   display: flex;
@@ -726,12 +750,13 @@ button, input, select {
 
 .action-card-text {
   flex: 1;
+  min-width: 0;
 }
 
 .action-card-num {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-teal-accent);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-teal-text);
   margin-bottom: 2px;
 }
 
@@ -750,10 +775,11 @@ button, input, select {
 }
 
 .action-card-arrow {
-  font-size: 1.4rem;
-  color: var(--color-teal-accent);
+  font-size: 1.3rem;
+  color: var(--color-primary);
   margin-left: 4px;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .action-card:hover .action-card-arrow {
@@ -765,9 +791,9 @@ button, input, select {
    ========================================================================== */
 .today-box {
   background: #FFFFFF;
-  border: 2px solid var(--color-teal-accent);
+  border: 2px solid var(--color-teal-border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 22px;
   box-shadow: var(--shadow-md);
 }
 
@@ -777,7 +803,7 @@ button, input, select {
   justify-content: space-between;
   border-bottom: 2px solid var(--color-teal-soft);
   padding-bottom: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -795,7 +821,7 @@ button, input, select {
   background: #DCFCE7;
   color: #166534;
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 4px 12px;
   border-radius: var(--radius-full);
 }
@@ -854,11 +880,12 @@ button, input, select {
   margin-top: 8px;
   background: var(--color-amber-bg);
   color: var(--color-amber-text);
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
   border: 1px solid var(--color-amber-border);
+  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -918,12 +945,12 @@ button, input, select {
 .doctor-dept {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-teal-accent);
+  color: var(--color-teal-text);
   margin-top: 2px;
 }
 
 .doctor-qual {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--color-text-light);
   margin-top: 2px;
 }
@@ -950,9 +977,9 @@ button, input, select {
 }
 
 .schedule-label {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-primary);
-  min-width: 60px;
+  min-width: 65px;
 }
 
 .doctor-actions {
@@ -975,7 +1002,7 @@ button, input, select {
   background: var(--color-teal-soft);
   color: var(--color-primary-dark);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 12px 18px;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-teal-border);
@@ -986,7 +1013,8 @@ button, input, select {
   transition: background var(--transition-fast);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
   background: #D5EBE6;
 }
 
@@ -1023,7 +1051,7 @@ button, input, select {
 .service-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-teal-accent);
+  color: var(--color-teal-text);
   margin-bottom: 8px;
 }
 
@@ -1034,7 +1062,7 @@ button, input, select {
 }
 
 /* ==========================================================================
-   PATIENT & FAMILY GUIDE (রোগী ও পরিবারের জন্য)
+   PATIENT & FAMILY GUIDE
    ========================================================================== */
 .patient-guide-grid {
   display: grid;
@@ -1085,20 +1113,19 @@ button, input, select {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--color-teal-accent);
+  color: var(--color-primary);
   font-weight: bold;
 }
 
 /* ==========================================================================
    "I AM IN A HURRY" UX (এখনই দরকার?)
-   High contrast, 3 massive buttons, reassuring.
    ========================================================================== */
 .hurry-section {
   background: #083E38;
   color: #FFFFFF;
-  padding: 44px 0;
+  padding: 40px 16px;
   border-radius: var(--radius-lg);
-  margin: 20px 0;
+  margin: 16px 0;
   box-shadow: var(--shadow-lg);
 }
 
@@ -1114,13 +1141,13 @@ button, input, select {
   text-align: center;
   font-size: 1.15rem;
   color: #A7F3D0;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .hurry-buttons-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 14px;
   max-width: 860px;
   margin: 0 auto;
 }
@@ -1137,20 +1164,21 @@ button, input, select {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 20px 16px;
+  padding: 18px 14px;
   border-radius: var(--radius-md);
   font-size: 1.25rem;
   font-weight: 800;
   text-align: center;
-  min-height: 90px;
+  min-height: 88px;
   border: none;
   cursor: pointer;
   text-decoration: none;
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
-.hurry-btn:hover {
-  transform: translateY(-3px);
+.hurry-btn:hover,
+.hurry-btn:focus {
+  transform: translateY(-2px);
   filter: brightness(1.08);
 }
 
@@ -1193,8 +1221,8 @@ button, input, select {
 .route-steps-container {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin: 24px 0;
+  gap: 16px;
+  margin: 22px 0;
 }
 
 .route-step-row {
@@ -1247,7 +1275,7 @@ button, input, select {
   color: #FFFFFF;
   font-size: 1.35rem;
   font-weight: 800;
-  padding: 18px 24px;
+  padding: 18px 20px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   text-decoration: none;
@@ -1255,7 +1283,8 @@ button, input, select {
   transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
-.btn-huge-map:hover {
+.btn-huge-map:hover,
+.btn-huge-map:focus {
   background: #0369A1;
   transform: translateY(-2px);
 }
@@ -1281,7 +1310,7 @@ button, input, select {
 }
 
 .faq-card.open {
-  border-color: var(--color-teal-accent);
+  border-color: var(--color-primary);
 }
 
 .faq-question-btn {
@@ -1300,20 +1329,21 @@ button, input, select {
   color: var(--color-primary-dark);
 }
 
-.faq-question-btn:hover {
+.faq-question-btn:hover,
+.faq-question-btn:focus {
   background: var(--color-teal-soft);
 }
 
 .faq-toggle-icon {
   font-size: 1.6rem;
   font-weight: bold;
-  color: var(--color-teal-accent);
+  color: var(--color-primary);
   transition: transform var(--transition-fast);
   line-height: 1;
 }
 
 .faq-card.open .faq-toggle-icon {
-  transform: rotate(45deg); /* turns + into x or rotates indicator */
+  transform: rotate(45deg);
 }
 
 .faq-answer {
@@ -1337,7 +1367,7 @@ button, input, select {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 22px;
 }
 
 @media (min-width: 768px) {
@@ -1391,14 +1421,13 @@ button, input, select {
 
 /* ==========================================================================
    MANAGEMENT DEMO: DIGITAL DESK PREVIEW MODAL
-   Shows management how staff will update daily doctors/OPD in future
    ========================================================================== */
 .digital-desk-banner {
   background: #FEF3C7;
   border: 2px dashed #D97706;
   border-radius: var(--radius-md);
   padding: 16px 20px;
-  margin: 30px auto 0;
+  margin: 28px auto 0;
   max-width: 900px;
   display: flex;
   align-items: center;
@@ -1421,7 +1450,7 @@ button, input, select {
 .btn-desk-preview {
   background: #B45309;
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: 800;
   padding: 10px 18px;
   border-radius: var(--radius-sm);
   border: none;
@@ -1433,7 +1462,7 @@ button, input, select {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   z-index: 1000;
   padding: 20px;
   overflow-y: auto;
@@ -1473,8 +1502,7 @@ button, input, select {
 }
 
 /* ==========================================================================
-   STICKY MOBILE BOTTOM ACTION BAR (Mandatory UX requirement)
-   📞 ফোন | 💬 WhatsApp | 📍 রাস্তা
+   STICKY MOBILE BOTTOM ACTION BAR
    ========================================================================== */
 .sticky-bottom-bar {
   position: fixed;
@@ -1587,10 +1615,12 @@ button, input, select {
 .footer-nav-link {
   color: #E2ECE9;
   font-size: 1.05rem;
+  font-weight: 600;
   transition: color var(--transition-fast);
 }
 
-.footer-nav-link:hover {
+.footer-nav-link:hover,
+.footer-nav-link:focus {
   color: #A7F3D0;
   text-decoration: underline;
 }
@@ -1604,7 +1634,7 @@ button, input, select {
 }
 
 .footer-disclaimer-box {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.28);
   border-left: 3px solid #F59E0B;
   padding: 12px 16px;
   border-radius: var(--radius-sm);
@@ -1612,4 +1642,16 @@ button, input, select {
   font-size: 0.9rem;
   color: #FEF3C7;
   line-height: 1.5;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

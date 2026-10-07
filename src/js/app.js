@@ -214,6 +214,17 @@ class BellviewApp {
       performSearch(e.target.value);
     });
 
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const firstLink = resultsList.querySelector('a.search-result-item');
+        if (firstLink) {
+          e.preventDefault();
+          firstLink.click();
+          resultsTray.classList.remove('has-results');
+        }
+      }
+    });
+
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         searchInput.value = '';
