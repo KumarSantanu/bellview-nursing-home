@@ -84,7 +84,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: manual;
 }
 
 body {
@@ -583,6 +583,23 @@ button, input, select {
   color: var(--color-teal-text);
 }
 
+.hero-image-card img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .hero-image-card {
+    padding: 10px;
+  }
+  .hero-image-card img {
+    max-height: 170px;
+  }
+}
+
 /* ==========================================================================
    SIMPLE INSTANT SEARCH (কী খুঁজছেন?)
    ========================================================================== */
@@ -717,6 +734,8 @@ button, input, select {
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   text-decoration: none;
   min-height: 108px;
+  height: 100%;
+  box-sizing: border-box;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -857,6 +876,10 @@ button, input, select {
   border: 1px solid var(--color-teal-border);
   border-radius: var(--radius-md);
   padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .today-item-title {
@@ -873,18 +896,19 @@ button, input, select {
   font-size: 1.05rem;
   color: var(--color-text-muted);
   line-height: 1.5;
+  flex: 1;
 }
 
 .unverified-badge {
   display: inline-block;
   margin-top: 8px;
-  background: var(--color-amber-bg);
-  color: var(--color-amber-text);
+  background: #F8FAFC;
+  color: #475569;
   font-size: 0.82rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--color-amber-border);
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid #CBD5E1;
   line-height: 1.4;
 }
 
@@ -1039,6 +1063,10 @@ button, input, select {
   border-radius: var(--radius-lg);
   padding: 22px;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .service-category {
@@ -1059,6 +1087,7 @@ button, input, select {
   font-size: 1.05rem;
   color: var(--color-text-muted);
   line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 /* ==========================================================================
@@ -1082,6 +1111,10 @@ button, input, select {
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .guide-title {
@@ -1423,10 +1456,10 @@ button, input, select {
    MANAGEMENT DEMO: DIGITAL DESK PREVIEW MODAL
    ========================================================================== */
 .digital-desk-banner {
-  background: #FEF3C7;
-  border: 2px dashed #D97706;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
   border-radius: var(--radius-md);
-  padding: 16px 20px;
+  padding: 16px 22px;
   margin: 28px auto 0;
   max-width: 900px;
   display: flex;
@@ -1438,24 +1471,31 @@ button, input, select {
 
 .digital-desk-info h4 {
   font-size: 1.15rem;
-  color: #92400E;
+  color: #14532D;
+  font-weight: 800;
   margin-bottom: 4px;
 }
 
 .digital-desk-info p {
-  font-size: 0.95rem;
-  color: #78350F;
+  font-size: 0.96rem;
+  color: #166534;
 }
 
 .btn-desk-preview {
-  background: #B45309;
+  background: var(--color-primary);
   color: #FFFFFF;
-  font-weight: 800;
-  padding: 10px 18px;
+  font-weight: 700;
+  padding: 10px 20px;
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
   min-height: 44px;
+  transition: background var(--transition-fast);
+}
+
+.btn-desk-preview:hover,
+.btn-desk-preview:focus {
+  background: var(--color-primary-dark);
 }
 
 .modal-backdrop {
