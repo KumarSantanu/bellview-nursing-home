@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2F8F6"/>
+      <stop offset="100%" stop-color="#E2F0EC"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E5A52"/>
+      <stop offset="100%" stop-color="#083E38"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="400" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Architectural Wall Elements -->
+  <rect x="40" y="60" width="520" height="240" rx="8" fill="#FFFFFF" opacity="0.75"/>
+  <rect x="70" y="90" width="120" height="90" rx="6" fill="#E8F4F1" stroke="#CCE5DE" stroke-width="2"/>
+  <line x1="130" y1="90" x2="130" y2="180" stroke="#CCE5DE" stroke-width="2"/>
+  <line x1="70" y1="135" x2="190" y2="135" stroke="#CCE5DE" stroke-width="2"/>
+  
+  <!-- Hospital Cross on wall -->
+  <circle cx="490" cy="130" r="26" fill="#0E5A52" opacity="0.12"/>
+  <path d="M490 115 V145 M475 130 H505" stroke="#0E5A52" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Reception Desk Front -->
+  <rect x="120" y="240" width="360" height="110" rx="12" fill="url(#tealGrad)"/>
+  <rect x="100" y="225" width="400" height="22" rx="6" fill="#14B8A6"/>
+  <rect x="160" y="265" width="280" height="10" rx="4" fill="#FFFFFF" opacity="0.15"/>
+  
+  <!-- Bellview Nursing Home Signboard on Counter -->
+  <rect x="190" y="285" width="220" height="46" rx="6" fill="#FFFFFF"/>
+  <text x="300" y="307" font-family="'Noto Sans Bengali', 'Inter', sans-serif" font-size="14" font-weight="700" fill="#0E5A52" text-anchor="middle">বেলভিউ নার্সিং হোম</text>
+  <text x="300" y="322" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#0D9488" text-anchor="middle">DIGITAL RECEPTION DESK</text>
+
+  <!-- Receptionist Character (Friendly Front Desk) -->
+  <circle cx="300" cy="155" r="30" fill="#FBCFE8"/> <!-- Head -->
+  <path d="M272 150 C272 130, 328 130, 328 150 Z" fill="#374151"/> <!-- Hair -->
+  <!-- Stethoscope on neck -->
+  <path d="M285 185 Q300 205 315 185" stroke="#14B8A6" stroke-width="3" fill="none"/>
+  <!-- Uniform -->
+  <path d="M260 225 Q260 185 300 185 Q340 185 340 225 Z" fill="#FFFFFF" stroke="#CCE5DE" stroke-width="2"/>
+  <!-- Welcoming Hand Wave -->
+  <circle cx="355" cy="190" r="10" fill="#FBCFE8"/>
+  <path d="M340 205 L355 190" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Desk Items: Desktop monitor & telephone -->
+  <rect x="140" y="175" width="55" height="42" rx="4" fill="#334155"/>
+  <rect x="144" y="179" width="47" height="32" rx="2" fill="#E2E8F0"/>
+  <rect x="163" y="217" width="9" height="10" fill="#475569"/>
+  <rect x="155" y="224" width="25" height="4" rx="2" fill="#475569"/>
+
+  <!-- Telephone on Desk -->
+  <rect x="420" y="202" width="34" height="24" rx="4" fill="#0F172A"/>
+  <path d="M424 195 C434 192 444 192 450 195" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Reassuring Green Plant -->
+  <circle cx="85" cy="275" r="24" fill="#A7F3D0"/>
+  <path d="M85 240 C65 260 105 270 85 295" stroke="#059669" stroke-width="3" fill="none"/>
+  <rect x="75" y="280" width="20" height="26" rx="4" fill="#D97706"/>
+
+  <!-- Warm Sunbeam / Compassion glow -->
+  <circle cx="530" cy="70" r="38" fill="#FEF3C7" opacity="0.6"/>
+</svg>

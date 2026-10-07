@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" data-font-size="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bellview Nursing Home, Tamluk | Digital Reception Desk</title>
+  <meta name="description" content="Bellview Nursing Home, Tamluk, Purba Medinipur. Simple and easy medical info: doctors, OPD timings, admission guidelines, directions and phone.">
+  <link rel="canonical" href="https://bellviewtamluk.in/en/">
+  <link rel="alternate" hreflang="bn" href="https://bellviewtamluk.in/">
+  <link rel="alternate" hreflang="en" href="https://bellviewtamluk.in/en/">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+
+  <!-- ACCESSIBILITY UTILITY BAR -->
+  <div class="top-utility-bar">
+    <div class="top-utility-container">
+      <div class="utility-left">
+        <span class="location-tag">📍 Tamluk, Purba Medinipur</span>
+        <span style="font-size: 0.85rem; color: #CCE5DF;">(Near Tamluk Rly Station)</span>
+      </div>
+      <div class="utility-controls">
+        <!-- Font Size Adjuster -->
+        <div class="font-size-control" role="group" aria-label="Adjust font size">
+          <button type="button" class="font-size-btn" data-size="small" title="Smaller font">A−</button>
+          <button type="button" class="font-size-btn active" data-size="normal" title="Normal font">A</button>
+          <button type="button" class="font-size-btn" data-size="large" title="Larger font">A+</button>
+        </div>
+
+        <!-- Language Switch: বাংলা -->
+        <a href="/" class="lang-toggle-btn" aria-label="বাংলা ভাষায় দেখুন">
+          🌐 <span>বাংলা</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="main-header" role="banner">
+    <div class="header-container">
+      <a href="/en/" class="brand-wrapper" aria-label="Bellview Nursing Home Home">
+        <div class="brand-icon" aria-hidden="true">🏥</div>
+        <div class="brand-titles">
+          <span class="brand-title">Bellview Nursing Home</span>
+          <span class="brand-subtitle">Tamluk • Digital Reception Desk</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="/en/" class="nav-link active">Home</a>
+        <a href="#doctors-section" class="nav-link">Doctors</a>
+        <a href="#services-section" class="nav-link">Services</a>
+        <a href="#patient-guide-section" class="nav-link">Patient Guide</a>
+        <a href="#how-to-reach-section" class="nav-link">How to Reach</a>
+        <a href="#contact-section" class="btn-header-contact">📞 Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle Navigation">
+        ☰ Menu
+      </button>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-drawer" role="navigation" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="/en/" class="mobile-nav-link active">🏠 Home</a></li>
+        <li><a href="#doctors-section" class="mobile-nav-link">👨‍⚕️ Doctors</a></li>
+        <li><a href="#today-section" class="mobile-nav-link">📅 OPD & Schedules</a></li>
+        <li><a href="#services-section" class="mobile-nav-link">🩺 Healthcare Services</a></li>
+        <li><a href="#patient-guide-section" class="mobile-nav-link">📋 Patient Guide & Admission</a></li>
+        <li><a href="#how-to-reach-section" class="mobile-nav-link">📍 How to Reach</a></li>
+        <li><a href="#faq-section" class="mobile-nav-link">❓ Common Questions (FAQ)</a></li>
+        <li><a href="#contact-section" class="mobile-nav-link" style="background: var(--color-primary); color: #FFFFFF;">📞 Contact & Phone</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content" id="main-content">
+
+    <!-- 1 & 2. HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-location-pill">
+              📍 <strong>Tamluk, Purba Medinipur</strong>
+            </div>
+            
+            <h1 class="hero-h1">Find Medical Information Easily</h1>
+            
+            <p class="hero-lead">
+              Doctors, OPD, admission, contact and directions to the nursing home in one place. No complicated jargon—find what you need in seconds.
+            </p>
+
+            <a href="#six-actions" class="hero-primary-cta">
+              <span>What do you need?</span>
+              <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="hero-image-card">
+            <img src="/images/reception-desk.svg" alt="Bellview Nursing Home Digital Reception Desk" width="560" height="360" loading="eager">
+            <div class="hero-image-caption">
+              “A friendly digital reception desk”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE SEARCH -->
+    <section class="section" style="padding-top: 24px; padding-bottom: 10px;">
+      <div class="container">
+        <div class="search-wrapper">
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="quickSearchInput" class="search-input" placeholder="What are you looking for? e.g. Doctor, OPD, Admission, Directions..." aria-label="Search site">
+            <button type="button" id="quickSearchClear" class="search-clear-btn" aria-label="Clear search">✕</button>
+          </div>
+
+          <div id="quickSearchResults" class="search-results-tray" aria-live="polite">
+            <p style="font-weight: 700; color: var(--color-primary); margin-bottom: 8px; font-size: 1rem;">Relevant Results:</p>
+            <ul id="quickSearchList" class="search-results-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SIX BIG ACTIONS -->
+    <section class="section" id="six-actions" style="padding-top: 10px;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Choose what you need</span>
+          <h2 class="section-title">What do you want to know?</h2>
+          <p class="section-subtitle">Tap on any section below to see immediate clear information:</p>
+        </div>
+
+        <div class="six-actions-grid">
+          <!-- 1. Doctors -->
+          <a href="#doctors-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">👨‍⚕️</div>
+            <div class="action-card-text">
+              <div class="action-card-num">1. Doctors</div>
+              <div class="action-card-title">Which doctor visits?</div>
+              <div class="action-card-desc">Doctor specialties and schedule</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+
+          <!-- 2. OPD / Appointments -->
+          <a href="#today-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">📅</div>
+            <div class="action-card-text">
+              <div class="action-card-num">2. OPD / Appointments</div>
+              <div class="action-card-title">When do doctors visit?</div>
+              <div class="action-card-desc">OPD timings and booking steps</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+
+          <!-- 3. Admission -->
+          <a href="#patient-guide-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">🏥</div>
+            <div class="action-card-text">
+              <div class="action-card-num">3. Admission</div>
+              <div class="action-card-title">Want to know about admission?</div>
+              <div class="action-card-desc">Required documents & guidelines</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+
+          <!-- 4. Patient Info -->
+          <a href="#patient-guide-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">📋</div>
+            <div class="action-card-text">
+              <div class="action-card-num">4. Patient Info</div>
+              <div class="action-card-title">Patient & Family Guide</div>
+              <div class="action-card-desc">What to bring, visiting hours & discharge</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+
+          <!-- 5. How to Reach -->
+          <a href="#how-to-reach-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">📍</div>
+            <div class="action-card-text">
+              <div class="action-card-num">5. How to Reach</div>
+              <div class="action-card-title">Location & Directions</div>
+              <div class="action-card-desc">Route from Tamluk Railway Station</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+
+          <!-- 6. Contact -->
+          <a href="#contact-section" class="action-card">
+            <div class="action-card-icon" aria-hidden="true">📞</div>
+            <div class="action-card-text">
+              <div class="action-card-num">6. Contact</div>
+              <div class="action-card-title">Phone / WhatsApp / Address</div>
+              <div class="action-card-desc">Speak directly with front desk</div>
+            </div>
+            <div class="action-card-arrow" aria-hidden="true">➔</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TODAY SECTION -->
+    <section class="section section-alt" id="today-section">
+      <div class="container">
+        <div class="today-box">
+          <div class="today-header-row">
+            <div class="today-title-group">
+              <h2 class="section-title" style="margin-bottom: 0; font-size: 1.8rem;">📢 Today's Information</h2>
+              <span class="live-indicator">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span>Live Daily Desk</span>
+              </span>
+            </div>
+            <div style="font-size: 0.95rem; color: var(--color-text-light);">
+              Date: October 7, 2026
+            </div>
+          </div>
+
+          <div class="today-grid">
+            <!-- Today's Doctors -->
+            <div class="today-item">
+              <div class="today-item-title">
+                <span>👨‍⚕️</span>
+                <span>Today's Doctors</span>
+              </div>
+              <div class="today-item-body">
+                <p><strong>General Medicine & Gynaecology:</strong></p>
+                <p>Scheduled OPD consultations are active today.</p>
+                <span class="unverified-badge">Subject to Bellview Verification</span>
+              </div>
+            </div>
+
+            <!-- OPD Timings -->
+            <div class="today-item">
+              <div class="today-item-title">
+                <span>🕐</span>
+                <span>OPD Timings</span>
+              </div>
+              <div class="today-item-body">
+                <p><strong>Morning Shift:</strong> 10:00 AM - 1:00 PM</p>
+                <p><strong>Evening Shift:</strong> 4:00 PM - 7:00 PM</p>
+                <span class="unverified-badge">Subject to Bellview Verification</span>
+              </div>
+            </div>
+
+            <!-- Today's Announcement -->
+            <div class="today-item">
+              <div class="today-item-title">
+                <span>📢</span>
+                <span>Today's Notice</span>
+              </div>
+              <div class="today-item-body">
+                <p id="todayAnnouncementText">Attendants are kindly requested to bring patient Aadhaar cards and past medical prescriptions during admission.</p>
+                <span class="unverified-badge">Demo Notice</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Digital Desk Simulation Banner -->
+          <div class="digital-desk-banner">
+            <div class="digital-desk-info">
+              <h4>🏢 For Nursing Home Staff: "Bellview Digital Desk"</h4>
+              <p>Staff can update daily doctor availability and announcements in real-time without writing code.</p>
+            </div>
+            <button type="button" class="btn-desk-preview trigger-digital-desk">
+              View Management Demo ⚙️
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DOCTORS SECTION -->
+    <section class="section" id="doctors-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Medical Specialists</span>
+          <h2 class="section-title">Doctors</h2>
+          <p class="section-subtitle">Check consulting doctor schedules. Please confirm via phone prior to your visit.</p>
+        </div>
+
+        <div class="doctors-grid">
+          <!-- Doctor 1 -->
+          <div class="doctor-card">
+            <div class="doctor-card-top">
+              <div class="doctor-avatar">
+                <img src="/images/doctor-generic.svg" alt="Doctor Photo" width="72" height="72">
+              </div>
+              <div class="doctor-meta">
+                <h3 class="doctor-name">Dr. [Doctor Name To Be Verified]</h3>
+                <div class="doctor-dept">General Medicine</div>
+                <div class="doctor-qual">MBBS, MD [Verification Pending]</div>
+                <span class="unverified-badge">VERIFY WITH BELLVIEW</span>
+              </div>
+            </div>
+
+            <div class="doctor-schedule-box">
+              <div class="schedule-row">
+                <span class="schedule-label">📅 Days:</span>
+                <span>Mon, Wed, Fri</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-label">🕐 Time:</span>
+                <span>10:00 AM - 1:00 PM</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-label">🚪 Room:</span>
+                <span>Room No. 2</span>
+              </div>
+            </div>
+
+            <div class="doctor-actions">
+              <a href="/doctors/" class="btn-secondary">🕒 View Schedule</a>
+              <a href="#contact-section" class="btn-secondary" style="background: var(--color-primary); color: #FFFFFF;">📞 Appointment / Call</a>
+            </div>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="doctor-card">
+            <div class="doctor-card-top">
+              <div class="doctor-avatar">
+                <img src="/images/doctor-generic.svg" alt="Doctor Photo" width="72" height="72">
+              </div>
+              <div class="doctor-meta">
+                <h3 class="doctor-name">Dr. [Doctor Name To Be Verified]</h3>
+                <div class="doctor-dept">Gynaecology & Obstetrics</div>
+                <div class="doctor-qual">MBBS, DGO, MS [Verification Pending]</div>
+                <span class="unverified-badge">VERIFY WITH BELLVIEW</span>
+              </div>
+            </div>
+
+            <div class="doctor-schedule-box">
+              <div class="schedule-row">
+                <span class="schedule-label">📅 Days:</span>
+                <span>Tue, Thu, Sat</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-label">🕐 Time:</span>
+                <span>4:00 PM - 7:00 PM</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-label">🚪 Room:</span>
+                <span>Room No. 1</span>
+              </div>
+            </div>
+
+            <div class="doctor-actions">
+              <a href="/doctors/" class="btn-secondary">🕒 View Schedule</a>
+              <a href="#contact-section" class="btn-secondary" style="background: var(--color-primary); color: #FFFFFF;">📞 Appointment / Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SERVICES SECTION -->
+    <section class="section section-alt" id="services-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Patient Care</span>
+          <h2 class="section-title">Healthcare Services</h2>
+          <p class="section-subtitle">Simplified into four primary categories without overwhelming jargon:</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-category">🩺 Medical Care</div>
+            <div class="service-title">OPD Consultations & Primary Care</div>
+            <p class="service-desc">Regular consultations with experienced medical practitioners.</p>
+            <span class="unverified-badge">To be confirmed with Bellview</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-category">🏥 Inpatient Admission</div>
+            <div class="service-title">Patient Inpatient Care & Observation</div>
+            <p class="service-desc">Clean, calm inpatient facilities with dedicated nursing staff under doctor guidance.</p>
+            <span class="unverified-badge">To be confirmed with Bellview</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-category">🔬 Diagnostics</div>
+            <div class="service-title">Routine Blood & Laboratory Tests</div>
+            <p class="service-desc">Essential pathology support as advised by consulting physicians.</p>
+            <span class="unverified-badge">To be confirmed with Bellview</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-category">👩‍⚕️ Specialist Doctors</div>
+            <div class="service-title">Visiting Medical Specialists</div>
+            <p class="service-desc">Medicine, Gynaecology, Paediatrics, and Orthopaedic specialist clinics.</p>
+            <span class="unverified-badge">To be confirmed with Bellview</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PATIENT & FAMILY -->
+    <section class="section" id="patient-guide-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Family Handbook</span>
+          <h2 class="section-title">Patient & Family Guide</h2>
+          <p class="section-subtitle">Essential guidelines for family members before and during hospital stay:</p>
+        </div>
+
+        <div class="patient-guide-grid">
+          <!-- 1. Admission -->
+          <div class="guide-card">
+            <h3 class="guide-title">🧾 What is Needed for Admission?</h3>
+            <ul class="guide-list">
+              <li class="guide-item">Doctor's prescription or admission slip</li>
+              <li class="guide-item">Patient's government photo ID (Aadhaar / Voter card)</li>
+              <li class="guide-item">Phone number and address proof of guardian / attendant</li>
+              <li class="guide-item">All prior medical reports, prescriptions and test history</li>
+            </ul>
+            <span class="unverified-badge" style="margin-top: 14px;">Official guidelines to be verified with Bellview management</span>
+          </div>
+
+          <!-- 2. What to bring -->
+          <div class="guide-card">
+            <h3 class="guide-title">🎒 What Should You Bring?</h3>
+            <ul class="guide-list">
+              <li class="guide-item">Comfortable loose cotton clothing for the patient</li>
+              <li class="guide-item">Personal hygiene items (towel, soap, brush, mug)</li>
+              <li class="guide-item">Currently ongoing medicine bottles or prescription slips</li>
+              <li class="guide-item">Mobile phone and charger (please avoid bringing expensive jewellery)</li>
+            </ul>
+            <span class="unverified-badge" style="margin-top: 14px;">Official guidelines to be verified with Bellview management</span>
+          </div>
+
+          <!-- 3. Attendant rules -->
+          <div class="guide-card">
+            <h3 class="guide-title">👨‍👩‍👧 Rules for Family & Attendants</h3>
+            <ul class="guide-list">
+              <li class="guide-item">Usually one authorized attendant is permitted to stay with the inpatient</li>
+              <li class="guide-item">Visiting Hours: 4:00 PM to 6:00 PM [Verification Pending]</li>
+              <li class="guide-item">Please maintain quietness for patients' rest and recovery</li>
+              <li class="guide-item">Bringing young children inside ward areas is discouraged</li>
+            </ul>
+            <span class="unverified-badge" style="margin-top: 14px;">Official guidelines to be verified with Bellview management</span>
+          </div>
+
+          <!-- 4. Discharge -->
+          <div class="guide-card">
+            <h3 class="guide-title">📋 Discharge Guidelines</h3>
+            <ul class="guide-list">
+              <li class="guide-item">Discharge begins after attending doctor rounds in the morning</li>
+              <li class="guide-item">Billing clearance is typically done between 11:00 AM and 2:00 PM</li>
+              <li class="guide-item">Collect discharge summary file and verify dosage schedule</li>
+              <li class="guide-item">Confirm next follow-up consultation date before leaving</li>
+            </ul>
+            <span class="unverified-badge" style="margin-top: 14px;">Official guidelines to be verified with Bellview management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. "I AM IN A HURRY" UX -->
+    <section class="section" style="padding: 10px 0 20px;">
+      <div class="container">
+        <div class="hurry-section">
+          <h2 class="hurry-title">🚨 Need Assistance Right Now?</h2>
+          <p class="hurry-subtitle">Tap below for instant direct assistance:</p>
+
+          <div class="hurry-buttons-grid">
+            <a href="tel:+919000000000" class="hurry-btn hurry-btn-phone" aria-label="Call Now">
+              <span class="hurry-btn-icon" aria-hidden="true">📞</span>
+              <span>Call Reception</span>
+              <small style="font-size: 0.85rem; font-weight: 500;">Speak directly</small>
+            </a>
+
+            <a href="#how-to-reach-section" class="hurry-btn hurry-btn-route" aria-label="Directions">
+              <span class="hurry-btn-icon" aria-hidden="true">📍</span>
+              <span>Directions</span>
+              <small style="font-size: 0.85rem; font-weight: 500;">From Tamluk Station</small>
+            </a>
+
+            <a href="#doctors-section" class="hurry-btn hurry-btn-doctor" aria-label="View Doctors">
+              <span class="hurry-btn-icon" aria-hidden="true">👨‍⚕️</span>
+              <span>View Doctors</span>
+              <small style="font-size: 0.85rem; font-weight: 500;">OPD timings</small>
+            </a>
+          </div>
+
+          <div style="text-align: center; margin-top: 18px; font-size: 0.92rem; color: #E2ECE9;">
+            * Note: Emergency services schedule is under official confirmation with management.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. HOW TO REACH -->
+    <section class="section section-alt" id="how-to-reach-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Location & Route</span>
+          <h2 class="section-title">How to Reach Bellview?</h2>
+          <p class="section-subtitle">Located in central Tamluk, moments away from Tamluk Railway Station:</p>
+        </div>
+
+        <div class="route-guide-card">
+          <div style="margin-bottom: 24px;">
+            <img src="/images/tamluk-route.svg" alt="Route from Tamluk Station to Bellview Nursing Home" width="700" height="240" style="margin: 0 auto; border-radius: 12px;">
+          </div>
+
+          <div style="background: var(--color-teal-soft); border-radius: 12px; padding: 18px; border: 1px solid var(--color-teal-border); margin-bottom: 20px;">
+            <h3 style="font-size: 1.25rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 6px;">📍 Verified Address</h3>
+            <p style="font-size: 1.15rem; color: var(--color-text-main); font-weight: 600;">
+              Vivekananda Nagar, Dharinda (Tamluk Railway Station Area), Tamluk, Purba Medinipur, West Bengal - 721636
+            </p>
+            <span class="unverified-badge">Address and distance subject to official verification</span>
+          </div>
+
+          <a href="https://maps.google.com/?q=Bellview+Nursing+Home+Tamluk" target="_blank" rel="noopener noreferrer" class="btn-huge-map">
+            <span>📍 Open in Google Maps for Live Navigation</span>
+          </a>
+
+          <div class="route-steps-container">
+            <div class="route-step-row">
+              <div class="route-step-number">1</div>
+              <div class="route-step-content">
+                <div class="route-step-title">🚆 By Train: Arrive at Tamluk Railway Station</div>
+                <div class="route-step-desc">Take any train on Howrah-Haldia/Digha route to Tamluk. Exit station toward Dharinda side.</div>
+              </div>
+            </div>
+
+            <div class="route-step-row">
+              <div class="route-step-number">2</div>
+              <div class="route-step-content">
+                <div class="route-step-title">🛺 Toto / Auto or a 3-Minute Walk</div>
+                <div class="route-step-desc">Board an e-rickshaw (Toto) towards Vivekananda Nagar. Distance is approx. 0.24 km.</div>
+              </div>
+            </div>
+
+            <div class="route-step-row">
+              <div class="route-step-number">3</div>
+              <div class="route-step-content">
+                <div class="route-step-title">🏥 Arrive at Bellview Nursing Home</div>
+                <div class="route-step-desc">Enter reception desk where front desk personnel will guide you immediately.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQS -->
+    <section class="section" id="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Clear Answers</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Helpful answers to common queries:</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-card open">
+            <button type="button" class="faq-question-btn" aria-expanded="true">
+              <span>Where is Bellview Nursing Home located?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Bellview Nursing Home is situated at Vivekananda Nagar / Dharinda in Tamluk, Purba Medinipur, right adjacent to Tamluk Railway Station.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span>How can I reach the facility?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              By train, alight at Tamluk station and it is a 3-minute walk or 2-minute Toto ride. By bus, alight at Maniktala or Station Road and take a Toto.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span>Which doctors visit?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Specialists in General Medicine, Gynaecology, Paediatrics and Orthopaedics visit regularly. Please see the Doctors section for details.
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <button type="button" class="faq-question-btn" aria-expanded="false">
+              <span>How do I contact Bellview?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Tap the 'Call Reception' button at the bottom of the screen or dial the reception desk directly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONTACT -->
+    <section class="section section-alt" id="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Get in touch</span>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-subtitle">Feel free to contact us for any doctor or patient inquiry:</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card-title">📞 Call Reception</div>
+            <p style="font-size: 1.1rem; color: var(--color-text-main);">
+              Speak directly with our front desk to confirm doctor visits and admission.
+            </p>
+            <div style="background: var(--color-bg-base); padding: 14px; border-radius: 8px; border: 1px solid var(--color-teal-border);">
+              <div style="font-size: 0.95rem; color: var(--color-text-muted);">Reception Phone:</div>
+              <div style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-dark);">[Phone Verification Pending]</div>
+              <span class="unverified-badge">Demo Number: 03228-XXXXXX</span>
+            </div>
+            <a href="tel:+919000000000" class="btn-contact-action btn-call-large">
+              <span>📞 Call Front Desk</span>
+            </a>
+            <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer" class="btn-contact-action btn-whatsapp-large">
+              <span>💬 Message on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-title">📍 Visit Us</div>
+            <div>
+              <p style="font-weight: 700; color: var(--color-primary-dark); font-size: 1.12rem; margin-bottom: 4px;">Address:</p>
+              <p style="font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.5;">
+                Vivekananda Nagar, Dharinda, Tamluk, Purba Medinipur, WB - 721636<br>
+                (Few minutes from Tamluk Railway Station)
+              </p>
+            </div>
+            <div>
+              <p style="font-weight: 700; color: var(--color-primary-dark); font-size: 1.12rem; margin-bottom: 4px;">Visiting Hours:</p>
+              <p style="font-size: 1.05rem; color: var(--color-text-muted);">
+                4:00 PM - 6:00 PM [Verification Pending]
+              </p>
+            </div>
+            <a href="https://maps.google.com/?q=Bellview+Nursing+Home+Tamluk" target="_blank" rel="noopener noreferrer" class="btn-contact-action" style="background: var(--color-map-blue); color: #FFFFFF;">
+              <span>📍 Directions on Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Bellview Nursing Home</h3>
+          <p>
+            Tamluk, Purba Medinipur. A patient-first digital reception desk providing clear, honest, and accessible healthcare guidance.
+          </p>
+          <div class="footer-disclaimer-box">
+            <strong>Notice:</strong> This is a demo proposal website. All verified schedules and contact details will be finalized upon management approval.
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Pages</h3>
+          <ul class="footer-nav-list">
+            <li><a href="/en/" class="footer-nav-link">Home</a></li>
+            <li><a href="/doctors/" class="footer-nav-link">Doctors</a></li>
+            <li><a href="/opd/" class="footer-nav-link">OPD Timings</a></li>
+            <li><a href="/services/" class="footer-nav-link">Services</a></li>
+            <li><a href="/patient-guide/" class="footer-nav-link">Patient Guide</a></li>
+            <li><a href="/how-to-reach/" class="footer-nav-link">How to Reach</a></li>
+            <li><a href="/faq/" class="footer-nav-link">FAQ</a></li>
+            <li><a href="/contact/" class="footer-nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Languages & Tools</h3>
+          <p style="margin-bottom: 12px;">Available in Bengali and English:</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+            <a href="/" style="background: rgba(255,255,255,0.1); color: #fff; padding: 6px 14px; border-radius: 20px; font-weight: bold;">বাংলা</a>
+            <a href="/en/" style="background: var(--color-primary); color: #fff; padding: 6px 14px; border-radius: 20px; font-weight: bold; border: 1px solid #fff;">English</a>
+          </div>
+          <button type="button" class="trigger-digital-desk" style="background: none; border: 1px solid #A7F3D0; color: #A7F3D0; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 0.95rem;">
+            ⚙️ Digital Desk Staff Demo
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Bellview Nursing Home, Tamluk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY BOTTOM ACTION BAR -->
+  <aside class="sticky-bottom-bar" aria-label="Quick Actions">
+    <div class="bottom-bar-grid">
+      <a href="tel:+919000000000" class="bottom-action-btn btn-bottom-call" aria-label="Call Reception">
+        <span class="bottom-btn-icon" aria-hidden="true">📞</span>
+        <span>Call</span>
+      </a>
+      <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer" class="bottom-action-btn btn-bottom-wa" aria-label="Message on WhatsApp">
+        <span class="bottom-btn-icon" aria-hidden="true">💬</span>
+        <span>WhatsApp</span>
+      </a>
+      <a href="#how-to-reach-section" class="bottom-action-btn btn-bottom-route" aria-label="Directions to Nursing Home">
+        <span class="bottom-btn-icon" aria-hidden="true">📍</span>
+        <span>Route</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MANAGEMENT MODAL (reused) -->
+  <div id="digitalDeskModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="deskModalTitleEn">
+    <div class="modal-window">
+      <button type="button" id="closeDeskModal" class="modal-close-btn" aria-label="Close">✕</button>
+      
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 1.8rem;">⚙️</span>
+        <h3 id="deskModalTitleEn" style="font-size: 1.4rem; color: var(--color-primary-dark); font-weight: 800;">
+          Bellview Digital Desk
+        </h3>
+      </div>
+      <p style="font-size: 0.98rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Management Demo: Demonstrating how nursing home staff can easily update doctor availability, OPD shifts, and announcements without writing any code.
+      </p>
+
+      <form id="deskSimulationForm">
+        <label for="deskNoticeInput" style="display: block; font-weight: 700; margin-bottom: 6px; color: var(--color-primary-dark);">
+          Test updating today's notice:
+        </label>
+        <textarea id="deskNoticeInput" rows="2" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #CBD5E1; font-family: inherit; font-size: 1rem; margin-bottom: 12px;">Doctor visiting at 12:00 PM today. Please register at front counter.</textarea>
+        <button type="submit" style="background: var(--color-primary); color: #fff; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 700; width: 100%; cursor: pointer;">
+          Update Live Notice ✔
+        </button>
+      </form>
+      <div id="deskSimulationStatus" style="display: none; margin-top: 10px; text-align: center; color: #15803D; font-weight: 700;">
+        ✔ Updated successfully on homepage!
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <rect width="200" height="200" rx="100" fill="#E8F4F1"/>
+  <circle cx="100" cy="72" r="32" fill="#F8C798"/>
+  <!-- Hair -->
+  <path d="M72 68 C72 45, 128 45, 128 68 C128 50, 72 50, 72 68 Z" fill="#2E384D"/>
+  <!-- Doctor Coat -->
+  <path d="M50 170 C50 120, 150 120, 150 170 Z" fill="#0E5A52"/>
+  <path d="M68 170 L86 118 L114 118 L132 170 Z" fill="#FFFFFF"/>
+  <!-- Tie / Shirt -->
+  <polygon points="100,120 95,145 100,150 105,145" fill="#0D9488"/>
+  <!-- Stethoscope -->
+  <path d="M82 120 C82 145, 118 145, 118 120" stroke="#334155" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="148" r="5" fill="#14B8A6"/>
+</svg>

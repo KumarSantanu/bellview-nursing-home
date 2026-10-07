@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#0E5A52"/>
+  <circle cx="32" cy="32" r="22" fill="#FFFFFF"/>
+  <!-- Hospital Green Cross -->
+  <path d="M32 18 V46 M18 32 H46" stroke="#0D9488" stroke-width="8" stroke-linecap="round"/>
+</svg>
