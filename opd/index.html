@@ -77,12 +77,12 @@
   </header>
 
   <main class="main-content" id="main-content">
-    <div class="container" style="padding-top: 24px;">
-      <a href="/" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--color-primary); background: var(--color-teal-soft); padding: 8px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 1.05rem;">
+    <div class="container subpage-container">
+      <a href="/" class="back-home-btn">
         ← 🏠 হোম পেজে ফিরুন
       </a>
 
-      <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+      <div class="section-header" style="text-align: left; margin-bottom: 18px;">
         <span class="section-badge">বহির্বিভাগ সময়সূচী</span>
         <h1 class="section-title">OPD ও অ্যাপয়েন্টমেন্ট</h1>
         <p class="section-subtitle" style="margin: 0;">
@@ -91,28 +91,28 @@
       </div>
 
       <!-- OPD Shift Summary Cards -->
-      <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 28px;">
-        <div style="background: #FFFFFF; border: 2px solid var(--color-teal-border); border-radius: 14px; padding: 22px;">
-          <h2 style="font-size: 1.35rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px;">
+        <div class="subpage-card">
+          <h2>
             <span>☀️</span> <span>সকাল শিফট (Morning OPD)</span>
           </h2>
-          <p style="font-size: 1.15rem; color: var(--color-text-main); font-weight: 700; margin-bottom: 6px;">
+          <p style="font-size: 1.02rem; color: var(--color-text-main); font-weight: 700; margin-bottom: 4px;">
             সময়: সকাল ১০:০০ টা থেকে দুপুর ১:০০ টা
           </p>
-          <p style="font-size: 1.05rem; color: var(--color-text-muted);">
+          <p style="font-size: 0.92rem; color: var(--color-text-muted);">
             সাধারণ মেডিসিন ও হাড়ের রোগ সংক্রান্ত পরামর্শ। কাউন্টারে সকাল ৯:৩০ থেকে সিরিয়াল প্রদান শুরু হয়।
           </p>
           <span class="unverified-badge">সময়সূচী Bellview কর্তৃপক্ষ দ্বারা নিশ্চিত করা হবে</span>
         </div>
 
-        <div style="background: #FFFFFF; border: 2px solid var(--color-teal-border); border-radius: 14px; padding: 22px;">
-          <h2 style="font-size: 1.35rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        <div class="subpage-card">
+          <h2>
             <span>🌙</span> <span>বিকেল শিফট (Evening OPD)</span>
           </h2>
-          <p style="font-size: 1.15rem; color: var(--color-text-main); font-weight: 700; margin-bottom: 6px;">
+          <p style="font-size: 1.02rem; color: var(--color-text-main); font-weight: 700; margin-bottom: 4px;">
             সময়: বিকেল ৪:০০ টা থেকে রাত ৮:০০ টা
           </p>
-          <p style="font-size: 1.05rem; color: var(--color-text-muted);">
+          <p style="font-size: 0.92rem; color: var(--color-text-muted);">
             স্ত্রীরোগ, প্রসূতি ও শিশু রোগ বিশেষজ্ঞ পরামর্শ।
           </p>
           <span class="unverified-badge">সময়সূচী Bellview কর্তৃপক্ষ দ্বারা নিশ্চিত করা হবে</span>
@@ -120,24 +120,24 @@
       </div>
 
       <!-- How to Get Appointment -->
-      <div style="background: #FFFFFF; border: 2px solid var(--color-teal-border); border-radius: 14px; padding: 24px; margin-bottom: 30px;">
-        <h2 style="font-size: 1.35rem; color: var(--color-primary-dark); font-weight: 800; margin-bottom: 14px;">
+      <div class="subpage-card" style="margin-bottom: 20px;">
+        <h2>
           📅 সিরিয়াল বা অ্যাপয়েন্টমেন্ট কীভাবে পাবেন?
         </h2>
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div style="display: flex; gap: 12px; align-items: flex-start;">
-            <span style="background: var(--color-primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">১</span>
-            <p style="font-size: 1.1rem; color: var(--color-text-main);">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="background: var(--color-primary); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.9rem;">১</span>
+            <p style="font-size: 0.95rem; color: var(--color-text-main);">
               <strong>ফোনে নাম লেখান:</strong> আমাদের রিসেপশন নম্বরে কল করে ডাক্তার ও নিজের নাম নথিভুক্ত করুন।
             </p>
           </div>
-          <div style="display: flex; gap: 12px; align-items: flex-start;">
-            <span style="background: var(--color-primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">২</span>
-            <p style="font-size: 1.1rem; color: var(--color-text-main);">
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="background: var(--color-primary); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.9rem;">২</span>
+            <p style="font-size: 0.95rem; color: var(--color-text-main);">
               <strong>সরাসরি কাউন্টারে আসুন:</strong> নার্সিং হোমের ফ্রন্ট ডেস্কে এসে সরাসরি টোকেন নিতে পারেন।
             </p>
           </div>
-          <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
             <span style="background: var(--color-primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">৩</span>
             <p style="font-size: 1.1rem; color: var(--color-text-main);">
               <strong>পুরোনো ফাইল সঙ্গে রাখুন:</strong> ডাক্তার দেখানোর সময় পূর্ববর্তী প্রেসক্রিপশন ও টেস্ট রিপোর্ট সাথে আনুন।
