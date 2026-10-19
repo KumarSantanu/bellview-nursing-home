@@ -1,21 +1,26 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { bellviewHtml } from './build/html-plugin.js';
+
+const page = (p) => resolve(import.meta.dirname, p);
 
 export default defineConfig({
   root: '.',
+  plugins: [bellviewHtml()],
   build: {
     rollupOptions: {
       input: {
-        main: resolve(import.meta.dirname, 'index.html'),
-        doctors: resolve(import.meta.dirname, 'doctors/index.html'),
-        services: resolve(import.meta.dirname, 'services/index.html'),
-        opd: resolve(import.meta.dirname, 'opd/index.html'),
-        patientGuide: resolve(import.meta.dirname, 'patient-guide/index.html'),
-        admission: resolve(import.meta.dirname, 'admission/index.html'),
-        howToReach: resolve(import.meta.dirname, 'how-to-reach/index.html'),
-        faq: resolve(import.meta.dirname, 'faq/index.html'),
-        contact: resolve(import.meta.dirname, 'contact/index.html'),
-        en: resolve(import.meta.dirname, 'en/index.html'),
+        main: page('index.html'),
+        doctors: page('doctors/index.html'),
+        services: page('services/index.html'),
+        opd: page('opd/index.html'),
+        patientGuide: page('patient-guide/index.html'),
+        admission: page('admission/index.html'),
+        howToReach: page('how-to-reach/index.html'),
+        faq: page('faq/index.html'),
+        contact: page('contact/index.html'),
+        en: page('en/index.html'),
+        notFound: page('404.html'),
       },
     },
   },
