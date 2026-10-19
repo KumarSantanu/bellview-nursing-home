@@ -1,118 +1,80 @@
-# Bellview Nursing Home, Tamluk — Digital Reception Desk
+# Bellview Nursing Home, Tamluk — website
 
-A patient-friendly, low-cognitive-load website designed for **Bellview Nursing Home, Tamluk, Purba Medinipur, West Bengal**.
+A Bengali-first information website for Bellview Nursing Home, Vivekananda Nagar, Dharinda, Tamluk, Purba Medinipur. It is built as a proposal for the nursing home's management, so it runs in **demo mode** until they confirm the facts.
 
-Built specifically for presentation and proposal to the nursing home management.
+## Principles
 
----
+- **Nothing is guessed.** Doctors, timings, phone numbers, services and rules appear only after Bellview confirms them. Until then the page shows a "নিশ্চিত হলে যোগ হবে" (to be confirmed) chip.
+- **Reception desk first.** The address, phone and hours are on the first screen. There are four big task tiles, and a call / directions bar on phones.
+- **For everyone.** Plain Bengali, 17px base text with a text-size control, 44px+ tap targets, and keyboard and screen-reader support. Works without JavaScript.
+- **Light.** Plain HTML, CSS and a 2 KB script, with self-hosted fonts. No framework and no trackers.
 
-## 🌟 The Core UX Philosophy
+## Pages
 
-> **"A LOW-LEVEL USER MUST UNDERSTAND THIS WEBSITE WITHOUT KNOWING HOW TO USE WEBSITES."**
->
-> Designed as a **"Friendly Digital Reception Desk"** where an elderly or anxious visitor never has to wonder: *"Where should I click?"*
+| URL | Content |
+| --- | --- |
+| `/` | Reception card, task tiles, facts at a glance, doctors preview, directions, short FAQ |
+| `/doctors/` | Doctor list (to be confirmed) and what to bring |
+| `/opd/` | OPD timings and how to register |
+| `/admission/` | Admission documents and questions to ask |
+| `/patient-guide/` | Printable guide for families: what to bring, staying with the patient, discharge |
+| `/services/` | Services checklist (to be confirmed) |
+| `/how-to-reach/` | Address, Google Maps link, step-by-step directions |
+| `/faq/` | Common questions, including emergency, insurance and visiting hours |
+| `/contact/` | Phone, WhatsApp, hours, address |
+| `/en/` | One-page English summary |
+| `404.html` | Not-found page (Cloudflare Pages serves it with HTTP 404) |
 
-### Designed For:
-- **Elderly Bengali citizens** and first-time smartphone users
-- **Attendants & family members** seeking urgent, clear information
-- **Slow 2G/3G mobile networks** on budget Android devices
-- **Single-handed mobile thumb usage** with large finger-friendly targets (min 52px)
-- **High-contrast, legible typography** (Noto Sans Bengali + Inter)
+## Updating facts
 
----
+All contact details live in **`site.config.js`**. Fill a value only after management confirms it, then rebuild:
 
-## 🧭 12-Section Flow on Homepage
+```js
+phone: '+913228XXXXXX',
+phoneDisplay: { bn: '০৩২২৮-XXXXXX', en: '03228-XXXXXX' },
+whatsapp: '+91XXXXXXXXXX',
+hours: { bn: 'সকাল ১০টা – রাত ৮টা', en: '10 am – 8 pm' },
+mapUrl: 'https://maps.app.goo.gl/…', // Bellview's own pin
+```
 
-The homepage strictly follows the natural mental progression of a patient attendant:
+Call and WhatsApp buttons appear automatically once `phone` and `whatsapp` are set. Page-specific facts (doctors, OPD times, services) are in each page's HTML, marked with `{{tbc}}`.
 
-1. **Brand Identity & Location:** Bellview Nursing Home • তমলুক, পূর্ব মেদিনীপুর
-2. **Hero:** *চিকিৎসা সংক্রান্ত তথ্য সহজেই খুঁজে নিন* (One clear CTA: *আপনার কী দরকার? ↓*)
-3. **The Six Big Actions (আপনি কী জানতে চান?):**
-   - 👨‍⚕️ ১. ডাক্তার (*কোন ডাক্তার দেখেন?*)
-   - 📅 ২. OPD / অ্যাপয়েন্টমেন্ট (*কখন ডাক্তার দেখেন?*)
-   - 🏥 ৩. ভর্তি (*ভর্তি সম্পর্কে জানতে চান?*)
-   - 📋 ৪. রোগীর তথ্য (*রোগী ও পরিবারের তথ্য*)
-   - 📍 ৫. কীভাবে আসবেন (*লোকেশন ও রাস্তা দেখুন*)
-   - 📞 ৬. যোগাযোগ (*ফোন / WhatsApp / Directions*)
-4. **আজকের তথ্য (Today's Live Desk):** Today's doctors, OPD shifts, and real-time announcements.
-5. **ডাক্তার (Doctors):** Simplified cards with consultation days, timings, and verification disclaimers.
-6. **চিকিৎসা পরিষেবা (Services):** Grouped into 4 essential categories (🩺 চিকিৎসা, 🏥 ভর্তি, 🔬 পরীক্ষা, 👩‍⚕️ বিশেষজ্ঞ).
-7. **রোগী ও পরিবারের জন্য (Patient Handbook):**
-   - 🧾 ভর্তি হতে কী লাগবে?
-   - 🎒 কী কী সঙ্গে আনবেন?
-   - 👨‍👩‍👧 রোগীর সঙ্গে থাকার নিয়ম
-   - 📋 ছাড়পত্রের সময় (Discharge)
-8. **🚨 এখনই দরকার? (I am in a hurry UX):** 3 prominent buttons (📞 ফোন করুন | 📍 রাস্তা দেখুন | 👨‍⚕️ ডাক্তার দেখুন).
-9. **Bellview-এ কীভাবে আসবেন? (How to Reach):** Visual 3-step transit pictorial (Train Station → Toto → Bellview) + direct Google Maps button.
-10. **সাধারণ প্রশ্ন (FAQ):** Conversational accordion answering real attendant questions.
-11. **যোগাযোগ (Contact):** Direct phone, WhatsApp message, address, and visiting hours.
-12. **Footer:** Clean navigation, legal notices, and proposal transparency disclaimer.
+## How the build works
 
----
+`build/html-plugin.js` is a small Vite plugin with no extra dependencies. Each page holds only its title, description and `<main>`. The plugin fills in:
 
-## 📱 Mobile Sticky Action Bar
+- `<!-- @head -->`: SEO and social tags, fonts, stylesheet, JSON-LD
+- `<!-- @header -->` and `<!-- @footer -->`: shared header, menu, demo notice, footer, mobile quick bar
+- `{{icon:name}}`, `{{call-buttons}}`, `{{phone}}`, `{{hours}}`, `{{address}}`, `{{map-url}}`, `{{tbc}}`
 
-On mobile screens, a persistent bottom bar gives instant access without clutter:
-- **📞 ফোন** (Direct call)
-- **💬 WhatsApp** (Pre-filled Bengali greeting message)
-- **📍 রাস্তা** (Instant navigation guide)
+It also writes `robots.txt`, `sitemap.xml` and Cloudflare's `_headers` (security headers, long caching for `/assets/*` and `/fonts/*`).
 
----
+```bash
+npm ci
+npm run dev       # http://localhost:3000
+npm run build     # output in dist/
+```
 
-## ♿ Accessibility & Senior-Friendly Tools
+## Deployment (Cloudflare Pages)
 
-- **A− | A | A+ Text Size Scaling:** Dynamic root font-scaling preserved in `localStorage`.
-- **Bilingual Support (বাংলা | English):** Instant language toggle and dedicated `/en/` route.
-- **Icon + Bengali Text Pairing:** No bare icons. Every graphic is accompanied by large text.
-- **Instant Search (কী খুঁজছেন?):** Simple helper that matches doctors, OPD, admission, and routes without complex search syntax.
-- **Printable Patient Guide:** One-tap print stylesheet for attendants to carry physical paper checklists.
+Build command `npm run build`, output directory `dist`.
 
----
+| Environment variable | Effect |
+| --- | --- |
+| `SITE_URL` | Public URL, e.g. `https://bellview-nursing-home.pages.dev` now and the custom domain later. Enables canonical links, `og:url` / `og:image` (WhatsApp previews) and the sitemap. |
+| `SITE_DEMO=false` | Turns off demo mode: removes the demo notice and `noindex`, and publishes the sitemap. Set this only when every fact is confirmed. |
 
-## 🛡️ Truthful Presentation & Ethics
+### When the custom domain is connected
 
-In strict compliance with healthcare ethics:
-- ❌ **No fake claims** ("No. 1 hospital", fake awards, fake 100% cure rates).
-- ❌ **No unverified emergency promises.**
-- ❌ **No manufactured patient reviews.**
-- ✅ **Pending Verification Badges (`[যাচাইকরণ সাপেক্ষ]` / `[VERIFY WITH BELLVIEW]`):** Used transparently on unverified phone numbers, doctor timings, and exact railway distances until management formally confirms.
+1. Add it under Pages → Custom domains.
+2. Set `SITE_URL` to the new domain and `SITE_DEMO=false`, then redeploy.
+3. Add a Cloudflare redirect rule from `bellview-nursing-home.pages.dev` to the custom domain.
+4. Submit `/sitemap.xml` in Google Search Console, and add the website to Bellview's Google Business Profile and Justdial listing.
 
----
+## Facts Bellview must confirm
 
-## 🚀 Future Firebase Integration ("Bellview Digital Desk")
+Official name spelling (Bellview / Belview), PIN code (721636 or 721648), exact map pin and landmark, reception phone and WhatsApp, reception and OPD hours, doctors (name, department, days, times), services offered, emergency / 24-hour admission, Swasthya Sathi and insurance, admission documents and deposit, attendant and visiting rules, discharge timing, photos (with permission).
 
-The frontend data architecture (`src/data/siteData.js`) maps 1:1 with future Google Cloud Firestore collections:
-- `businessInfo`
-- `doctors`
-- `services`
-- `opdSchedules`
-- `announcements`
-- `faqs`
-- `gallery`
+## Licences
 
-### Management Demo Modal:
-Clicking **"ম্যানেজমেন্ট ডেমো (Digital Desk)"** showcases to the nursing home owners how non-technical staff can update daily announcements and doctor timings on the fly.
-
----
-
-## 🔗 URL Structure
-
-- `/` — Homepage (Bengali)
-- `/doctors/` — Dedicated Doctor Directory
-- `/opd/` — OPD Schedule & Booking Guidelines
-- `/services/` — Inpatient & Outpatient Healthcare Services
-- `/patient-guide/` — Family Handbook & Discharge Policy
-- `/admission/` — Admission Requirements & Checklist
-- `/how-to-reach/` — Transportation & Directions from Tamluk Station
-- `/faq/` — Conversational Questions & Answers
-- `/contact/` — Direct Phone, WhatsApp & Address
-- `/en/` — English Edition
-
----
-
-## ⚡ Technical & SEO Performance
-
-- **Zero Framework Bloat:** Vanilla HTML5, CSS3, and modern ES modules.
-- **Production Bundle:** Total CSS < 24 KB (4.8 KB gzip); Total JS < 8 KB (2.6 KB gzip).
-- **Core Web Vitals:** Instant sub-300ms loading even on weak 2G/3G networks.
-- **SEO Ready:** Full Schema.org `MedicalOrganization` JSON-LD, `sitemap.xml`, `robots.txt`, Open Graph tags.
+Noto Sans Bengali: SIL Open Font License 1.1 (`public/fonts/OFL.txt`). Icons are drawn after the Lucide set (ISC).
